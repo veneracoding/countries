@@ -18,6 +18,7 @@ module.exports={
     },
     // devServer
     // loader
+
     // plugins
     plugins: [
        new HtmlWebpackPlugin({
