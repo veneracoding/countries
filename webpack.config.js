@@ -1,5 +1,7 @@
 const path=require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const historyApiFallback = require('connect-history-api-fallback')
 
 module.exports={
     // mode
@@ -17,7 +19,25 @@ module.exports={
         clean: true,
     },
     // devServer
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, 'public')
+        },
+        port: 3000,
+        open: true,
+        hot: true,
+        compress: true,
+        historyApiFallback: true
+    },
     // loader
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
+              },
+        ]
+    },
 
     // plugins
     plugins: [
@@ -28,11 +48,13 @@ module.exports={
         chunks: ['main']
        }),
        
+       
        new HtmlWebpackPlugin({
         title: "Countires | About",
         template: './src/pages/aboutTemp.html',
         filename: 'about.html',
         chunks: ['about']
-       })
+       }),
+       new MiniCssExtractPlugin()
     ]
 }
