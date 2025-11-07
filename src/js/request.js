@@ -1,17 +1,17 @@
 import loaderToggle from "./loader";
 
 const request = async (resource) => {
-    try {
         loaderToggle(true)
-        const res = await fetch(resource)
-        const data = await res.json()
+        const req = await fetch(resource)
+        if(!req.ok) {
+            loaderToggle(false)
+            throw new Error("Something went wrong :(")
+        }
+
+        const data = await req.json()
         loaderToggle(false)
-        return data
-    } catch (err) {
-        loaderToggle(false)
-        console.error("REQUEST ERROR:", err)
-        return []   // ✅ Shunchaki undefined bo‘lmasin
-    }
+
+        return data 
 }
 
 export default request
