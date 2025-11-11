@@ -7,7 +7,6 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/css/main.css":
@@ -16,7 +15,18 @@
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://country/./src/css/main.css?\n}");
+
+/***/ }),
+
+/***/ "./src/js/filter.js":
+/*!**************************!*\
+  !*** ./src/js/filter.js ***!
+  \**************************/
+/***/ (() => {
+
+eval("{const searchFormEl = document.querySelector('.search')\r\n\r\nsearchFormEl.search.addEventListener(\"input\", () => {\r\n    const searchValue = searchFormEl.search.value.toLowerCase()\r\n    const cardsItem = document.querySelectorAll('.cards__item')\r\n    const cardsTitles = document.querySelectorAll('.cards__title')\r\n    cardsTitles.forEach((title, i) => {\r\n      if (title.textContent.toLocaleLowerCase().includes(searchValue)) {\r\n        cardsItem[i].style.display ='block'\r\n      }  else{\r\n        cardsItem[i].style.display = 'none'\r\n      }\r\n    })\r\n\r\n})\n\n//# sourceURL=webpack://country/./src/js/filter.js?\n}");
 
 /***/ }),
 
@@ -26,6 +36,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst loaderEl = document.querySelector('.loader')\r\n\r\nconst loaderToggle = (info) => {\r\n\r\n   if (info) {\r\n       loaderEl.classList.remove('hidden')\r\n   } else {\r\n       loaderEl.classList.add('hidden')\r\n   }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loaderToggle);\r\n\n\n//# sourceURL=webpack://country/./src/js/loader.js?\n}");
 
 /***/ }),
@@ -36,7 +47,8 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n\r\n\r\n// console.log('hello webpack !!!')\r\n\r\n\r\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all?fields=name,capital,region,population,flags';\r\n\r\n\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API).then((data) => {\r\n    (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.createCountries)(data)\r\n}).catch((err) => {\r\n    alert(err.message)\r\n})\n\n//# sourceURL=webpack://country/./src/js/main.js?\n}");
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./request */ \"./src/js/request.js\");\n/* harmony import */ var _updateUI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./updateUI */ \"./src/js/updateUI.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter */ \"./src/js/filter.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_filter__WEBPACK_IMPORTED_MODULE_3__);\n\r\n\r\n// console.log('hello webpack !!!')\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst API = 'https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags';\r\n\r\n(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API)\r\n  .then(data => {\r\n    (0,_updateUI__WEBPACK_IMPORTED_MODULE_2__.createCountries)(data)\r\n  })\r\n  .catch((err) => {\r\n    alert(err.message)\r\n  })\r\n\r\n\r\n//   agar data length: 250 yoki shunga o'xshash chiqsa -> API ishlaydi\r\n  ;(0,_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(API)\r\n  .then(data => {\r\n    console.log(\"DATA LENGTH:\", data.length)\r\n    console.log(data)\r\n  })\r\n  .catch(err => console.error(\"API ERROR:\", err))\r\n\n\n//# sourceURL=webpack://country/./src/js/main.js?\n}");
 
 /***/ }),
 
@@ -46,6 +58,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cs
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loader */ \"./src/js/loader.js\");\n\r\n\r\nconst request = async (resource) => {\r\n        (0,_loader__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(true)\r\n        const req = await fetch(resource)\r\n        if(!req.ok) {\r\n            (0,_loader__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false)\r\n            throw new Error(\"Something went wrong :(\")\r\n        }\r\n\r\n        const data = await req.json()\r\n        ;(0,_loader__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(false)\r\n\r\n        return data \r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (request);\r\n\n\n//# sourceURL=webpack://country/./src/js/request.js?\n}");
 
 /***/ }),
@@ -56,7 +69,8 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createCountries: () => (/* binding */ createCountries)\n/* harmony export */ });\n\r\n// const cardsEl = document.querySelector('.cards')\r\n// export const createCountries = (countries) => {\r\n//     countries.forEach((country) => {\r\n//         const commonName = country.name.common \r\n//         const population = country.population\r\n//         const region = country.region\r\n//         const capital = country.capital ? country.capital[0] : \"No Capital\"\r\n//         const flag = country.flags.svg \r\n\r\n//         //li\r\n//         const li = document.createElement('li')\r\n//         li.classList.add('cards_item')\r\n//         li.innerHTML = `\r\n//         <a href=\"./about.html\">\r\n//            <img src=${flag} alt=\"germany-flag\" width=\"267\" height=\"160\">\r\n//             <div class=\"cards__item-inner\">\r\n//                 <h3 class=\"cards__title\">${commonName}</h3>\r\n//                 <p class=\"population\">Population: <span>${population}</span></p>\r\n//                 <p class=\"region\">Region: <span>${region}</span></p>\r\n//                 <p class=\"capital\">Capital: <span>${capital}</span></p>\r\n//             </div>\r\n//         </a>\r\n//         `\r\n\r\n//         //ul\r\n//         cardsEl.appendChild(li)\r\n//     })\r\n// }\r\n\r\nconst cardsEl = document.querySelector('.cards')\r\n\r\nconst createCountries = (countries) => {\r\n    if(!cardsEl) {\r\n        console.error(\"cards element not found in DOM\")\r\n        return\r\n    }\r\n\r\n    countries.forEach((country) => {\r\n        const commonName = country.name.common \r\n        const population = country.population.toLocaleString()\r\n        const region = country.region\r\n        const capital = country.capital ? country.capital[0] : \"No Capital\"\r\n        const flag = country.flags?.svg || country.flags?.png\r\n\r\n        const li = document.createElement('li')\r\n        li.classList.add('cards_item')\r\n        li.innerHTML = `\r\n        <a href=\"./about.html\">\r\n           <img src=\"${flag}\" alt=\"${commonName}-flag\">\r\n            <div class=\"cards__item-inner\">\r\n                <h3 class=\"cards__title\">${commonName}</h3>\r\n                <p class=\"population\">Population: <span>${population}</span></p>\r\n                <p class=\"region\">Region: <span>${region}</span></p>\r\n                <p class=\"capital\">Capital: <span>${capital}</span></p>\r\n            </div>\r\n        </a>\r\n        `\r\n\r\n        cardsEl.appendChild(li)\r\n    })\r\n}\r\n\r\n\r\n\r\n/* <a href=\"./about.html\">\r\n<img src=\"./images/jpg/germany-flag.jpg\" alt=\"germany-flag\" width=\"267\" height=\"160\">\r\n<div class=\"cards__item-inner\">\r\n    <h3 class=\"cards__title\">Germany</h3>\r\n    <p class=\"population\">Population: <span>81,770,900</span></p>\r\n    <p class=\"region\">Region: <span>Europe</span></p>\r\n    <p class=\"capital\">Capital: <span>Berlin</span></p>\r\n</div>\r\n</a> */\n\n//# sourceURL=webpack://country/./src/js/updateUI.js?\n}");
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createCountries: () => (/* binding */ createCountries)\n/* harmony export */ });\n\r\nconst cardsEl = document.querySelector('.cards')\r\nconst createCountries = (countries) => {\r\n\r\n    // agar cards elementlari bo'lmasa error chiqishi console da\r\n    // if(!cardsEl) {\r\n    //     console.error(\"cards element not found in DOM\")\r\n    //     return\r\n    // }\r\n\r\n    countries.forEach((country) => {\r\n        const commonName = country.name.common \r\n        const population = country.population.toLocaleString()\r\n        const region = country.region\r\n        const capital = country.capital ? country.capital[0] : \"No Capital\"\r\n        const flag = country.flags?.svg || country.flags?.png\r\n\r\n        //li \r\n        const li = document.createElement('li')\r\n        li.classList.add('cards_item')\r\n        li.innerHTML = `\r\n         <a href=\"./about.html\">\r\n           <img src=\"${flag}\" alt=\"${commonName}-flag\" width=\"267\" height=\"160\">\r\n            <div class=\"cards__item-inner\">\r\n                <h3 class=\"cards__title\">${commonName}</h3>\r\n                <p class=\"population\">Population: <span>${population}</span></p>\r\n                <p class=\"region\">Region: <span>${region}</span></p>\r\n                <p class=\"capital\">Capital: <span>${capital}</span></p>\r\n            </div>\r\n         </a>\r\n        `\r\n \r\n        //ul \r\n        cardsEl.appendChild(li)\r\n\r\n    })\r\n}\r\n\r\n    /* <a href=\"./about.html\">\r\n    <img src=\"./images/jpg/germany-flag.jpg\" alt=\"germany-flag\" width=\"267\" height=\"160\">\r\n    <div class=\"cards__item-inner\">\r\n        <h3 class=\"cards__title\">Germany</h3>\r\n        <p class=\"population\">Population: <span>81,770,900</span></p>\r\n        <p class=\"region\">Region: <span>Europe</span></p>\r\n        <p class=\"capital\">Capital: <span>Berlin</span></p>\r\n    </div>\r\n    </a> */\n\n//# sourceURL=webpack://country/./src/js/updateUI.js?\n}");
 
 /***/ })
 
@@ -87,6 +101,18 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
