@@ -1,8 +1,7 @@
 
 const cardsEl = document.querySelector('.cards')
 export const createCountries = (countries) => {
-
-    // agar cards elementlari bo'lmasa error chiqishi console da
+    
     // if(!cardsEl) {
     //     console.error("cards element not found in DOM")
     //     return
@@ -35,6 +34,7 @@ export const createCountries = (countries) => {
 
     })
 }
+
 
     /* <a href="./about.html">
     <img src="./images/jpg/germany-flag.jpg" alt="germany-flag" width="267" height="160">
