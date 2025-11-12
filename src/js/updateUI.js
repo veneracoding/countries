@@ -1,6 +1,7 @@
 
 const cardsEl = document.querySelector('.cards')
 export const createCountries = (countries) => {
+    cardsEl.innerHTML = ''
     
     // if(!cardsEl) {
     //     console.error("cards element not found in DOM")
