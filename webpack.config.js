@@ -5,7 +5,7 @@ const historyApiFallback = require('connect-history-api-fallback')
 
 module.exports={
     // mode
-    mode: 'development', //production
+    mode: 'production', // development 
     // entry
     entry: {
         main: path.resolve(__dirname, 'src/js/main.js'),
@@ -35,9 +35,20 @@ module.exports={
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
-              },
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env']
+                  }
+                }
+              }
         ]
     },
+      
 
     // plugins
     plugins: [
